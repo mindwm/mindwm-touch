@@ -1,0 +1,15 @@
+---
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: mindwm-touch
+spec:
+  broker: context-broker-team-a
+  filters:
+    - exact:
+        type: touch
+  subscriber:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: mindwm-touch
