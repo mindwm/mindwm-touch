@@ -11,6 +11,7 @@ from cloudevents import abstract, conversion
 from neomodel import db
 
 # logs and traces
+func_name = "func_touch"
 import otlp
 from otlp import logger,tracer
 from opentelemetry.trace.propagation.tracecontext import TraceContextTextMapPropagator
