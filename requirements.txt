@@ -5,3 +5,5 @@ cloudevents
 pydantic
 python_dateutil
 urllib3
+opentelemetry-sdk
+opentelemetry-exporter-otlp
