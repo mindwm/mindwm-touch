@@ -4,7 +4,7 @@ kind: Trigger
 metadata:
   name: mindwm-touch
 spec:
-  broker: context-broker-team-a
+  broker: context-broker-purple
   filters:
     - exact:
         type: touch

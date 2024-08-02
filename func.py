@@ -9,6 +9,7 @@ import MindWM
 from cloudevents.http import from_http
 from cloudevents import abstract, conversion
 from neomodel import db
+from neomodel import config
 
 # logs and traces
 func_name = "func_touch"
@@ -22,6 +23,8 @@ def main(context: Context):
     # NOTE: need to fetch a traceId part from the `traceparent` field value
     te = MindWM.TouchEvent.from_json(conversion.to_json(event))
     ctx = TraceContextTextMapPropagator().extract(carrier=event)
+
+    config.DATABASE_URL = os.environ["NEO4J_BOLT_URL"]
 
 
     with tracer.start_as_current_span("processing", context=ctx) as span:

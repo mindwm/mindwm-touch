@@ -1,7 +1,6 @@
 from cloudevents.http import CloudEvent
 from parliament import Context
 import random
-
 import unittest
 
 func = __import__("func")
@@ -18,7 +17,7 @@ class TestFunc(unittest.TestCase):
         "source": "https://knative.dev/python.event",
         "traceparent": f"00-{traceId}-{spanId}-01",
     }
-    data = {"message": "Hello World!"}
+    data = {"ids": [1,2,3]}
     event = CloudEvent(attributes, data)
     context = Context(req=None)
     context.cloud_event = event

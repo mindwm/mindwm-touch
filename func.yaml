@@ -2,7 +2,7 @@ specVersion: 0.36.0
 name: mindwm-touch
 runtime: python
 registry: ghcr.io/mindwm
-namespace: context-team-a
+namespace: context-purple
 created: 2024-07-14T13:01:39.841440006Z
 invoke: cloudevent
 build:
@@ -12,12 +12,12 @@ build:
     value: 3.12.*
 run:
   envs:
-  - name: NEO4J_URL
-    value: team-a-neo4j-neo4j.context-team-a:7687
-  - name: NEO4J_USERNAME
-    value: neo4j
-  - name: NEO4J_PASSWORD
-    value: password
+  - name: NEO4J_BOTL_URL
+    value: bolt://neo4j:password@purple-neo4j.context-purple:7687
+  - name: OTEL_EXPORTER_OTLP_ENDPOINT
+    value: http://otel-collector-opentelemetry-collector.monitoring-ng:4317
+  - name: OTEL_EXPORTER_OTLP_TRACES_ENDPOINT
+    value: http://tempo-distributor.monitoring-ng:4317/v1/traces
 deploy:
-  namespace: context-team-a
-  image: ghcr.io/mindwm/mindwm-touch@sha256:cab461664f677759654b5e4a36dcfc939fa0d34ad93ea7a5506365d66c7a8c72
+  namespace: context-purple
+  image: ghcr.io/mindwm/mindwm-touch@sha256:edd820c4b015ca79884e37423ace46d0c635cb506ca0b16ae168a283be0b9f88
