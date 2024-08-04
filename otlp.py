@@ -10,7 +10,7 @@ from opentelemetry.sdk.resources import SERVICE_NAME, Resource
 from opentelemetry.sdk.trace.export import (BatchSpanProcessor, ConsoleSpanExporter)
 
 
-#func_name = "demo_func"
+func_name = "demo_func"
 resource = Resource(attributes={ SERVICE_NAME: func_name })
 # NOTE: OTEL_EXPORTER_OTLP_ENDPOINT env var should be defined to export logs
 # i.e. `http://10.20.30.11:4417`
